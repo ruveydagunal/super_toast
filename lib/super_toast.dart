@@ -1,60 +1,130 @@
 import 'package:flutter/material.dart';
 
-class SuperToastWidget extends StatelessWidget {
-  String text;
-  Color borderColor;
-  SuperToastWidget({
-    required this.text,
-    required this.borderColor,
-    super.key,
-  });
+class SuperToast {
+  static void show(
+    BuildContext context, {
+    required String message,
+    Color? backgroundColor,
+    Color? textColor,
+    double? borderRadius,
+    Color? borderColor,
+    Widget? icon,
+    Duration? duration = const Duration(seconds: 2),
+  }) {
+    final overlayState = Overlay.of(context);
+    OverlayEntry overlayEntry;
 
-    SuperToastWidget.success({
-    super.key,
-    required this.text,
-  })  : borderColor = Colors.green;
-
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: borderColor,
-          border: Border.all(color: borderColor),
-          borderRadius: BorderRadius.circular(13)),
-      child: Column(
-        children: [
-          Text(
-            text,
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,),
+    overlayEntry = OverlayEntry(
+      builder: (context) => Positioned(
+        bottom: 30, // Toast'un altındaki boşluk
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Material(
+            elevation: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              decoration: BoxDecoration(
+                border: Border.all(color: borderColor ?? Colors.transparent),
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(borderRadius ?? 16),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (icon != null) icon,
+                  if (icon != null) SizedBox(width: 8),
+                  Text(
+                    message,
+                    style: TextStyle(color: textColor),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ],
+        ),
       ),
+    );
+
+    overlayState.insert(overlayEntry);
+
+    Future.delayed(duration ?? Duration(seconds: 2), () {
+      overlayEntry.remove();
+    });
+  }
+
+  static void showSuccess(
+    BuildContext context, {
+    required String message,
+    Color? borderColor,
+    Color? backgroundColor,
+    Color? textColor,
+    Widget? icon,
+    double? borderRadius,
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    show(
+      context,
+      message: message,
+      backgroundColor: backgroundColor ?? Colors.green,
+      textColor: textColor ?? Colors.white,
+      borderColor: borderColor ?? Colors.white,
+      borderRadius: borderRadius,
+      icon: icon ?? null,
+      duration: duration,
     );
   }
 
-}
-
-
-class CustomToast {
-  static void show(
-    BuildContext context,
-    String message, {
-    Color backgroundColor = Colors.black,
-    Color textColor = Colors.white,
+  static void showFail(
+    BuildContext context, {
+    required String message,
+    Color? borderColor,
+    Color? backgroundColor,
+    Color? textColor,
+    Widget? icon,
+    double? borderRadius,
+    Duration duration = const Duration(seconds: 2),
   }) {
-    final scaffold = ScaffoldMessenger.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        content: Text(
-          message,
-          style: TextStyle(color: textColor),
-        ),
-        backgroundColor: backgroundColor,
-      ),
+    show(
+      context,
+      message: message,
+      backgroundColor: backgroundColor ?? Colors.red,
+      textColor: textColor ?? Colors.white,
+      borderColor: borderColor ?? Colors.white,
+      borderRadius: borderRadius,
+      icon: icon ?? null,
+      duration: duration,
+    );
+  }
+
+  static void showWarning(
+    BuildContext context, {
+    required String message,
+    double borderRadius = 16,
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    show(
+      context,
+      message: message,
+      backgroundColor: Colors.orange,
+      textColor: Colors.white,
+      borderRadius: borderRadius,
+      duration: duration,
+    );
+  }
+
+  static void showInfo(
+    BuildContext context, {
+    required String message,
+    double borderRadius = 16,
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    show(
+      context,
+      message: message,
+      backgroundColor: Colors.blue,
+      textColor: Colors.white,
+      borderRadius: borderRadius,
+      duration: duration,
     );
   }
 }
