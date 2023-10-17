@@ -20,6 +20,7 @@ class SuperToast {
         width: MediaQuery.of(context).size.width,
         child: Center(
           child: Material(
+            color: Colors.transparent,
             elevation: 0,
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -67,7 +68,7 @@ class SuperToast {
       message: message,
       backgroundColor: backgroundColor ?? Colors.green,
       textColor: textColor ?? Colors.white,
-      borderColor: borderColor ?? Colors.white,
+      borderColor: borderColor ?? Colors.transparent,
       borderRadius: borderRadius,
       icon: icon ?? null,
       duration: duration,
