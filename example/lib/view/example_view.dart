@@ -1,6 +1,9 @@
 import 'package:example/view/fail_toast.dart';
+import 'package:example/view/info_toast_view.dart';
 import 'package:example/view/success_toast.dart';
+import 'package:example/view/warning_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:super_toast/super_toast.dart';
 
 class ExampleView extends StatelessWidget {
@@ -43,11 +46,11 @@ class ExampleView extends StatelessWidget {
               width: 200,
               child: ElevatedButton(
                 onPressed: () {
-                  SuperToast.showInfo(
-                    context,
-                    message: 'This is an Info Message',
-                    duration: Duration(seconds: 2),
-                  );
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => InfoView()));
+                  
                 },
                 child: Text('Info Message'),
               ),
@@ -56,11 +59,10 @@ class ExampleView extends StatelessWidget {
               width: 200,
               child: ElevatedButton(
                 onPressed: () {
-                  SuperToast.showWarning(
-                    context,
-                    message: 'Bu bir özel toast mesajıdır.',
-                    duration: Duration(seconds: 2),
-                  );
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WarningView()));
                 },
                 child: Text('Warning Message'),
               ),

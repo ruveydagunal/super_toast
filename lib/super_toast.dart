@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 
 class SuperToast {
-  static void show(
-    BuildContext context, {
-    required String message,
-    Color? backgroundColor,
-    Color? textColor,
-    double? borderRadius,
-    Color? borderColor,
-    Widget? icon,
-    Duration? duration = const Duration(seconds: 2),
-  }) {
+  static void show(BuildContext context,
+      {required String message,
+      Color? backgroundColor,
+      Color? textColor,
+      double? borderRadius,
+      Color? borderColor,
+      Widget? prefixIcon,
+      Widget? suffixIcon,
+      Duration? duration = const Duration(seconds: 2),
+      double? bottomPosition}) {
     final overlayState = Overlay.of(context);
     OverlayEntry overlayEntry;
 
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        bottom: 30, // Toast'un altındaki boşluk
+        bottom: bottomPosition ??
+            MediaQuery.of(context).size.height *
+                0.05, // Toast'un altındaki boşluk
         width: MediaQuery.of(context).size.width,
         child: Center(
           child: Material(
@@ -32,12 +34,14 @@ class SuperToast {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (icon != null) icon,
-                  if (icon != null) SizedBox(width: 8),
+                  if (prefixIcon != null) prefixIcon,
+                  if (prefixIcon != null) SizedBox(width: 8),
                   Text(
                     message,
                     style: TextStyle(color: textColor),
                   ),
+                  if (suffixIcon != null) SizedBox(width: 8),
+                  if (suffixIcon != null) suffixIcon,
                 ],
               ),
             ),
@@ -59,9 +63,11 @@ class SuperToast {
     Color? borderColor,
     Color? backgroundColor,
     Color? textColor,
-    Widget? icon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
     double? borderRadius,
     Duration duration = const Duration(seconds: 2),
+    double? bottomPosition,
   }) {
     show(
       context,
@@ -70,8 +76,11 @@ class SuperToast {
       textColor: textColor ?? Colors.white,
       borderColor: borderColor ?? Colors.transparent,
       borderRadius: borderRadius,
-      icon: icon ?? null,
+      prefixIcon: prefixIcon ?? null,
+      suffixIcon: suffixIcon ?? null,
       duration: duration,
+      bottomPosition:
+          bottomPosition ?? MediaQuery.of(context).size.height * 0.05,
     );
   }
 
@@ -81,9 +90,11 @@ class SuperToast {
     Color? borderColor,
     Color? backgroundColor,
     Color? textColor,
-    Widget? icon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
     double? borderRadius,
     Duration duration = const Duration(seconds: 2),
+    double? bottomPosition,
   }) {
     show(
       context,
@@ -92,8 +103,11 @@ class SuperToast {
       textColor: textColor ?? Colors.white,
       borderColor: borderColor ?? Colors.white,
       borderRadius: borderRadius,
-      icon: icon ?? null,
+      prefixIcon: prefixIcon ?? null,
+      suffixIcon: suffixIcon ?? null,
       duration: duration,
+      bottomPosition:
+          bottomPosition ?? MediaQuery.of(context).size.height * 0.05,
     );
   }
 
@@ -102,14 +116,25 @@ class SuperToast {
     required String message,
     double borderRadius = 16,
     Duration duration = const Duration(seconds: 2),
+    double? bottomPosition,
+    Color? borderColor,
+    Color? backgroundColor,
+    Color? textColor,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
   }) {
     show(
       context,
       message: message,
-      backgroundColor: Colors.orange,
-      textColor: Colors.white,
+      backgroundColor: backgroundColor ?? Colors.orange,
+      borderColor: borderColor ?? Colors.white,
+      textColor: textColor ?? Colors.white,
       borderRadius: borderRadius,
       duration: duration,
+      prefixIcon: prefixIcon ?? null,
+      suffixIcon: suffixIcon ?? null,
+      bottomPosition:
+          bottomPosition ?? MediaQuery.of(context).size.height * 0.05,
     );
   }
 
@@ -118,6 +143,7 @@ class SuperToast {
     required String message,
     double borderRadius = 16,
     Duration duration = const Duration(seconds: 2),
+    double? bottomPosition,
   }) {
     show(
       context,
@@ -126,6 +152,8 @@ class SuperToast {
       textColor: Colors.white,
       borderRadius: borderRadius,
       duration: duration,
+      bottomPosition:
+          bottomPosition ?? MediaQuery.of(context).size.height * 0.05,
     );
   }
 }

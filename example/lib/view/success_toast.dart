@@ -47,7 +47,7 @@ class SuccessView extends StatelessWidget {
                   SuperToast.showSuccess(
                     context,
                     message: 'Success',
-                    icon: Icon(Icons.check, color: Colors.white,)
+                    suffixIcon: Icon(Icons.check, color: Colors.white,)
                   );
                 },
                 child: Text('Success Message with Icon'),

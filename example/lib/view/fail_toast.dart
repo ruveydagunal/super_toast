@@ -47,10 +47,10 @@ class FailView extends StatelessWidget {
                   SuperToast.showFail(
                     context,
                     message: 'Is Not Working',
-                    icon: Icon(Icons.clear, color: Colors.white,)
+                    prefixIcon: Icon(Icons.clear, color: Colors.white,)
                   );
                 },
-                child: Text('Fail Message with Icon'),
+                child: Text('Fail Message with Prefix Icon'),
               ),
             ),
           ],
