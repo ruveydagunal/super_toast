@@ -73,8 +73,10 @@ class ExampleView extends StatelessWidget {
                 onPressed: () {
                   SuperToast.show(
                     context,
-                    message: 'Bu bir özel toast mesajıdır.',
+                    message: 'Example Toast Message',
                     duration: Duration(seconds: 2),
+                    prefixIcon: CircleAvatar(radius : 20, backgroundImage: NetworkImage
+                    ('https://avatars.githubusercontent.com/u/136679910?v=4'), )
                   );
                 },
                 child: Text('Message'),
