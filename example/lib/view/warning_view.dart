@@ -35,7 +35,7 @@ class WarningView extends StatelessWidget {
                     borderColor: Colors.orange,
                     backgroundColor: Colors.white,
                     textColor: Colors.black,
-                    prefixIcon: SvgPicture.asset('assets/icons/icon_warning.svg')
+                    suffixIcon: SvgPicture.asset('assets/icons/icon_warning.svg')
                      
                   );
                 },
