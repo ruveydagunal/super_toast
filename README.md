@@ -1,7 +1,6 @@
 # Super Toast
 
-AÇIKLAMA
-
+Super Toast is a versatile Flutter package that allows you to display toast messages with various customization options. You can use it to show success, fail, info, warning, and basic toasts, and customize them to your liking. Super Toast supports adding icons, both from local assets and online sources, and lets you modify the background color, border color, text color, and more.
 
 
 ## Features
