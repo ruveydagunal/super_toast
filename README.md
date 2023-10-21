@@ -5,7 +5,10 @@ Super Toast is a versatile Flutter package that allows you to display toast mess
 
 ## Features
 
-- İÇERİK
+- Various Modes: With Super Toast, you can display toast messages in various modes, including success, failure, information, warning, and basic.
+- Customization: You can customize a multitude of features, such as the background color, border color, text color, and more, for your messages.
+- Icon Support: Super Toast allows you to add icons to your toast messages, either from local resources or from online sources.
+- Positioning: You have the flexibility to adjust the position of your toast messages as desired or use the default placement.
 
 <p align="center">
   <img width="300" height="600" src="">
