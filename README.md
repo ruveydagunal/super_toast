@@ -12,10 +12,6 @@ Super Toast is a versatile Flutter package that allows you to display toast mess
 
 <p align="center">
   <img width="300" height="600" src="https://github.com/ruveydagunal/super_toast/assets/136679910/b61f108d-af07-4ac9-93c4-a3b2b75f24dd">
-  <img width="300" height="600" src="">
-  <img width="300" height="600" src="">
-  <img width="300" height="600" src="">
-  <img width="300" height="600" src="">
 </p>
 
 ## Versions
