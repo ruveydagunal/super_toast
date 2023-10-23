@@ -1,39 +1,109 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Super Toast
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Super Toast is a versatile Flutter package that allows you to display toast messages with various customization options. You can use it to show success, fail, info, warning, and basic toasts, and customize them to your liking. Super Toast supports adding icons, both from local assets and online sources, and lets you modify the background color, border color, text color, and more.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
+<img align="right" src="https://github.com/ruveydagunal/super_toast/assets/136679910/8548fca5-bdec-4252-8757-a8e994ab2d7c" alt="Success Screenshot" width="250" height="500"/>
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Basic Mode: The basic mode of usage is the most practical. Simply call SuperToast.showSuccess(), SuperToast.showFail(), SuperToast.showInfo(), SuperToast.showWarning() or SuperToast.show() and provide the message you want to display.
 
-## Usage
+- Custom Usage: After calling SuperToast.showSuccess(), you can customize the following default settings:
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+  - Background color
+  - Border color
+  - Text color
+  - Border radius
+  - Duration
+  - Message position
 
-```dart
-const like = 'sample';
+  In addition to these options, you can also add widgets before and after the text.
+  These widgets can be:
+
+  - Icons from IconData
+  - Assets
+  - Network resources.
+
+## xxx
+
+<img align="right" src="https://github.com/ruveydagunal/super_toast/assets/136679910/083e6bee-4196-44ec-92d4-ebc54c25b62b" alt="Success Screenshot" width="250" height="500"/>
+
+- SuperToast.showSuccess():
+  - Green Background Color
+  - Duration(seconds: 2)
+  - White Text Color
+  - Transparent Border Color
+  - BorderRadius.circular(16)
+  - Position: MediaQuery.of(context).size.height * 0.05
+
+- SuperToast.showFail():
+  - Red Background Color
+  - Duration(seconds: 2)
+  - White Text Color
+  - Transparent Border Color
+  - BorderRadius.circular(16)
+  - Position: MediaQuery.of(context).size.height * 0.05
+
+- SuperToast.showInfo():
+  - Blue Background Color
+  - Duration(seconds: 2)
+  - White Text Color
+  - Transparent Border Color
+  - BorderRadius.circular(16)
+  - Position: MediaQuery.of(context).size.height * 0.05
+
+- SuperToast.showWarning():
+  - Orange Background Color
+  - Duration(seconds: 2)
+  - White Text Color
+  - Transparent Border Color
+  - BorderRadius.circular(16)
+  - Position: MediaQuery.of(context).size.height * 0.05
+
+- SuperToast.show():
+  - Transparent Background Color
+  - Duration(seconds: 2)
+  - Black Text Color
+  - Transparent Border Color
+  - BorderRadius.circular(16)
+  - Position: MediaQuery.of(context).size.height * 0.05
+
+
+
+
+
+## Versions
+
+|Versions Name | Version |  
+|--------------|---------|
+| Flutter      | 3.13.0  |
+| Dart         | 3.1.0   |
+
+
+## Constructor
+
+```
+ KOD
+
 ```
 
-## Additional information
+## Example Usage
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```
+EXAMPLE KOD
+
+```
+
+
+
+
+## Contributors 
+
+- [Ruveyda Dilara Günal](https://github.com/ruveydagunal)
+
+
+## Supporting
+- [Gürkan Fikret Günak](https://github.com/gurkanfikretgunak)
+- [Mete Çoban](https://github.com/metecoban)
+- [Melih Gündoğan](https://github.com/melihgundogan)
