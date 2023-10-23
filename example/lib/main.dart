@@ -1,4 +1,5 @@
-import 'package:example/view/example_view.dart';
+import 'package:example/view/customized_view.dart';
+import 'package:example/view/easy_to_use_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true
       ),
-      home: ExampleView(),
+      home: CustomizedView(),
     );
   }
 }
